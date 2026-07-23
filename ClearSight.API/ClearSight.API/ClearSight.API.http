@@ -1,0 +1,69 @@
+@ClearSight.API_HostAddress = http://localhost:5222
+
+GET {{ClearSight.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+POST https://localhost:7165/api/Products
+Content-Type: application/json
+
+{
+  "name": "Test Wireless Mouse",
+  "category": "Accessories",
+  "price": 29.99
+}
+
+###
+
+###
+
+PUT https://localhost:7165/api/Products/13
+Content-Type: application/json
+
+{
+  "productId": 13,
+  "name": "Upgraded Wireless Mouse",
+  "category": "Accessories",
+  "price": 39.99
+}
+
+###
+
+###
+
+DELETE https://localhost:7165/api/Products/12
+
+###
+
+### -------------------------------
+### INVENTORIES TESTS
+### -------------------------------
+
+### 1. GET all inventories
+GET https://localhost:7165/api/Inventories
+
+### 2. POST (Create) a new inventory record
+
+POST https://localhost:7165/api/Inventories
+Content-Type: application/json
+
+{
+  "productId": 1,
+  "storeId": 1,
+  "quantity": 100
+}
+
+### 3. PUT (Update) an inventory record
+PUT https://localhost:7165/api/Inventories/2
+Content-Type: application/json
+
+{
+  "inventoryId": 2,
+  "productId": 4,
+  "storeId": 1,
+  "quantityInStock": 150
+}
+
+### 4. DELETE the inventory record
+DELETE https://localhost:7165/api/Inventories/1
